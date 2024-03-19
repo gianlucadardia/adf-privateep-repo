@@ -1,0 +1,72 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "inv-dev-adf"
+		},
+		"SourceDB_ls_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SourceDB_ls'"
+		},
+		"az_sql_testingdb_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/40bd17b7-329f-497e-b0fa-279453a3622b/resourceGroups/invalsi-rg/providers/Microsoft.Sql/servers/inv-testingdatabase"
+		},
+		"az_sql_testingdb_properties_groupId": {
+			"type": "string",
+			"defaultValue": "sqlServer"
+		},
+		"az_sql_testingdb_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"inv-testingdatabase.database.windows.net"
+			]
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "inv-dev-adf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"SourceDB_ls_connectionString": {
+						"value": "[parameters('SourceDB_ls_connectionString')]"
+					},
+					"az_sql_testingdb_properties_privateLinkResourceId": {
+						"value": "[parameters('az_sql_testingdb_properties_privateLinkResourceId')]"
+					},
+					"az_sql_testingdb_properties_groupId": {
+						"value": "[parameters('az_sql_testingdb_properties_groupId')]"
+					},
+					"az_sql_testingdb_properties_fqdns": {
+						"value": "[parameters('az_sql_testingdb_properties_fqdns')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

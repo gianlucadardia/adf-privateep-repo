@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "inv-dev-adf"
+		},
+		"SourceDB_ls_connectionString": {
+			"value": ""
+		},
+		"az_sql_testingdb_properties_privateLinkResourceId": {
+			"value": "/subscriptions/40bd17b7-329f-497e-b0fa-279453a3622b/resourceGroups/invalsi-rg/providers/Microsoft.Sql/servers/inv-testingdatabase"
+		},
+		"az_sql_testingdb_properties_groupId": {
+			"value": "sqlServer"
+		},
+		"az_sql_testingdb_properties_fqdns": {
+			"value": [
+				"inv-testingdatabase.database.windows.net"
+			]
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
