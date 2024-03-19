@@ -1,0 +1,10 @@
+{
+	"name": "az_sql_testingdb",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/40bd17b7-329f-497e-b0fa-279453a3622b/resourceGroups/invalsi-rg/providers/Microsoft.Sql/servers/inv-testingdatabase",
+		"groupId": "sqlServer",
+		"fqdns": [
+			"inv-testingdatabase.database.windows.net"
+		]
+	}
+}

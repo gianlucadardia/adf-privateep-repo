@@ -1,0 +1,9 @@
+{
+	"name": "inv-dev-adf",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "042f55e1-e9c9-4d60-83bb-ab00f4da86fd",
+		"tenantId": "82ee1507-2458-4372-b515-c4da27d47038"
+	}
+}
