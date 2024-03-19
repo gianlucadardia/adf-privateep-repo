@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "inv-dev-adf"
 		},
+		"PublicSqlDB_ls_connectionString": {
+			"value": ""
+		},
 		"SourceDB_ls_connectionString": {
 			"value": ""
 		},

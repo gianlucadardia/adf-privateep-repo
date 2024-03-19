@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "inv-dev-adf"
 		},
+		"PublicSqlDB_ls_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'PublicSqlDB_ls'"
+		},
 		"SourceDB_ls_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SourceDB_ls'"
@@ -51,6 +55,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"PublicSqlDB_ls_connectionString": {
+						"value": "[parameters('PublicSqlDB_ls_connectionString')]"
 					},
 					"SourceDB_ls_connectionString": {
 						"value": "[parameters('SourceDB_ls_connectionString')]"
